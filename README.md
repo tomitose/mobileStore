@@ -1,3 +1,15 @@
+# ENG
+
+This project is an online store for mobile phones called Mobile-Store. It is an easy website to navigate and offers filtering and search features to help customers find the device they are looking for.
+
+Here below the step by step to install the dependencies
+
+# ESP
+
+Este proyecto es una tienda en línea de celulares móviles llamado Mobile-Store. Es un sitio web  fácil de navegar y ofrece características de filtrado y búsqueda para ayudar a los clientes a encontrar el dispositivo que busca.
+
+Aquí abajo el paso a paso para instalar las dependencias 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

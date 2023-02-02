@@ -1,0 +1,18 @@
+.main-footer {
+    color: white;
+    background-image: radial-gradient(circle at 0% 58.82%, #9347c2 0, #944ad8 25%, #7739cc 50%, #5629c0 75%, #2c1cb6 100%);
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+  }
+
+.data-text{
+    margin: 0;
+}
+
+.botom-text{
+    margin: 0;
+    padding-top: 10px;
+  }
