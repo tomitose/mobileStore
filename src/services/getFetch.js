@@ -14,12 +14,27 @@ export const getProducts = async () => {
 
 export const getProductDetail = async (id) => {
   try {
+    console.log(`${API_URL}/product/${id}`)
     const response = await axios.get(`${API_URL}/product/${id}`);
     return response.data;
+    console.log(id)
+    console.log(response.data)
   } catch (error) {
     throw error;
   }
 };
+
+
+// export async function getProductDetail(id) {
+//   try{
+//     const response = await fetch(`${API_URL}/product/${id}`)
+//     const data = await response.json();
+//     console.log(id)
+//     console.log(data)
+//   } catch(error){
+//     console.log(error)
+//   }
+// }
 
 export const addProductToCart = async (product) => {
   try {

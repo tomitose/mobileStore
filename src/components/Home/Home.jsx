@@ -10,27 +10,30 @@ import "./Home.css";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [query, setQuery] = useState("")
-
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0, 0);
     API.getProducts()
       .then(setProducts)
       .catch(console.log("Error"))
       .finally(() => {
         setLoading(false);
       });
+      console.log(products)
   }, []);
 
   const search = (products) => {
-    return products.filter((product) => product.model.toLowerCase().includes(query));
+    return products.filter((product) =>
+      product.model.toLowerCase().includes(query)
+    );
   };
 
   return (
     <div className="container-home">
       <Bread />
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search..."
@@ -46,8 +49,7 @@ const Home = () => {
         </Stack>
       ) : (
         <div className="container-cell">
-          <h1 className=" text-center text-accent-content pt-6"> Cellphones</h1>
-          <Products products={search(products)} />
+            <Products products={search(products)} />
         </div>
       )}
     </div>

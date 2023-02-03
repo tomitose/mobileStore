@@ -4,9 +4,21 @@
 
 .container-cell{
     display: flex;
-    padding: 60px;
+    padding: 40px 50px;
     align-items: center;
     align-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+} 
+
+.search-container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 50px 0px 0px;
+}
+
+.search{
+    padding: 10px;
+    width: 260px;
+    border-radius: 20px;
 }
