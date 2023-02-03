@@ -1,7 +1,12 @@
+.container-home{
+    min-height: 100vh;
+}
+
 .container-cell{
     display: flex;
     padding: 60px;
     align-items: center;
+    align-content: center;
     flex-direction: column;
     flex-wrap: wrap;
 }

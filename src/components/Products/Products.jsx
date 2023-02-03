@@ -6,7 +6,6 @@ const Products = ({ products }) => {
   return (
     <ul className="list-cells">
       {products.map((product) => (
-        
         <li key={product.id}>
           <div className="container-products">
             <div className="content">
@@ -15,7 +14,12 @@ const Products = ({ products }) => {
                 {product.brand} - {product.model}
               </h3>
               <p className="price-nmb">Price: ${product.price}</p>
-              <Button sx={{ marginTop:6}} size="small" color="secondary" className="btn-info">
+              <Button
+                sx={{ marginTop: 6 }}
+                size="small"
+                color="secondary"
+                className="btn-info"
+              >
                 + Info
               </Button>
               <br />
