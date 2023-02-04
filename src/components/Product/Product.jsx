@@ -1,7 +1,88 @@
-import React from "react";
+import { Button } from "@mui/material";
+import React, { useState } from "react";
 import "./Product.css";
+// import { addProductToCart } from "../../services/getFetch"
+// import * as API from "../../services/getFetch";
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
+  // const [productDetail,setProductDetail] = useState()
+  const [selected, setSelected] = useState(null);
+  const [colorSel, setColorSel] = useState(null);
+
+  // useEffect(()=> {
+  //   window.scrollTo(0, 0);
+  //   API.addProductToCart(product)
+  //   .then(setProductDetail(product))
+  //   .catch(error => {
+  //     console.log(error);
+  //   })
+
+  // },[]);
+
+  // const handleAddToCart = async () => {
+  //   try {
+  //     const response = await addProductToCart(product);
+  //     console.log("Product added to cart:", response);
+  //   } catch (error) {
+  //     console.error("Error adding product to cart:", error);
+  //   }
+  // };
+
+  const memorySize = product.internalMemory.map((item, index) => {
+    return (
+      <Button
+        key={index}
+        disabled={index !== 0}
+        color="secondary"
+        variant="outlined"
+        style={{
+          backgroundColor: selected === index ? "#ded3eb" : "white",
+          color: "#9c27b0",
+          margin: 5,
+        }}
+        onClick={() => handleClickMemory(index)}
+      >
+        {item}
+      </Button>
+    );
+  });
+
+  const colorSelected = product.colors.map((item, index) => {
+    return (
+      <Button
+        key={index}
+        disabled={index !== 0}
+        color="secondary"
+        variant="outlined"
+        style={{
+          backgroundColor: colorSel === index ? "#ded3eb" : "white",
+          color: "#9c27b0",
+          margin: 5,
+        }}
+        onClick={() => handleClickColor(index)}
+      >
+        {item}
+      </Button>
+    );
+  });
+
+  const handleClickMemory = (index) => {
+    setSelected(index);
+  };
+
+  const handleClickColor = (index) => {
+    setColorSel(index);
+  };
+
+  // // const handleClick = async (product) => {
+  // //   const productPost = {
+  // //     id: product.id,
+  //       colorCode: product.options.colors[0],
+  //       storageCode: product.options.storages[0]
+  // //   };
+  // //   await addProductToCart(productPost);
+  // // };
+
   return (
     <div className="container-product">
       <div className="container-img">
@@ -9,21 +90,66 @@ const Product = ({product}) => {
       </div>
       <div className="container-data">
         <div className="description">
-            <h3>{product.model} - {product.brand}</h3>
-            <p>Price: ${product.price}</p>
-            <p>CPU: {product.cpu}</p>
-            <p>RAM: {product.ram}</p>
-            <p>Operating System: {product.os}</p>
-            <p>Display Resolution: {product.displayResolution}</p>
-            <p>Battery: {product.battery}</p>
-            <p>Camera Primary: {product.primaryCamera}</p>
-            <p>Camera Secondary: {product.secondaryCmera}</p>
-            <p>Dimentions: {product.dimentions}</p>
-            <p>Weight: {product.weight}</p>
+          <h3>
+            {product.model} - {product.brand}
+          </h3>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Price:</strong>$
+            {product.price}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>CPU:</strong> {product.cpu}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>RAM:</strong>
+            {product.ram}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Operating System:</strong>
+            {product.os}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Display Resolution:</strong>
+            {product.displayResolution}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Battery:</strong>
+            {product.battery}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Camera Primary:</strong>
+            {product.primaryCamera}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Camera Secondary:</strong>
+            {product.secondaryCmera}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Dimentions:</strong>
+            {product.dimentions}
+          </p>
+          <p>
+            <strong style={{ fontWeight: "bold" }}>Weight:</strong>
+            {product.weight}
+          </p>
         </div>
         <div className="actions">
-            <h5>Memory Size{product.internalMemory}</h5>
-            <h5>Colors: {product.colors[0]} </h5>
+          <h4>Memory Size: {memorySize} </h4>
+
+          <h4>
+            Colors:
+            {colorSelected}
+          </h4>
+          <div>
+            <Button
+              className="btn-add-cart"
+              variant="contained"
+              sx={{ backgroundColor: "#6c2db1" }}
+              // onClick={handleAddToCart}
+            >
+              + Add to Cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>

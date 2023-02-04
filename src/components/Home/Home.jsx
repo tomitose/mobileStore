@@ -1,5 +1,4 @@
 import React from "react";
-import Bread from "../Bread/Bread";
 import * as API from "../../services/getFetch";
 import { useState, useEffect } from "react";
 import Stack from "@mui/material/Stack";
@@ -32,7 +31,6 @@ const Home = () => {
 
   return (
     <div className="container-home">
-      <Bread />
       <div className="search-container">
         <input
           type="text"

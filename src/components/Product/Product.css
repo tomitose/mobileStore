@@ -5,9 +5,15 @@
     flex-wrap: wrap;
     align-content: space-between;
     align-items: flex-start;
-    padding: 20px;
+    padding: 34px;
 }
 
 .img {
     height: 350px;
+}
+
+
+.btn-add-cart:hover{
+    background-color: #8756bb !important;
+
 }

@@ -26,6 +26,7 @@ export const getProductDetail = async (id) => {
 
 export const addProductToCart = async (product) => {
   try {
+    console.log(`${API_URL}/cart`, product)
     const response = await axios.post(`${API_URL}/cart`, product);
     return response.data;
   } catch (error) {
