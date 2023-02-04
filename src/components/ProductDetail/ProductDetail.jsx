@@ -2,6 +2,8 @@ import { CircularProgress, Stack } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as API from "../../services/getFetch"
+import Product from '../Product/Product';
+import "./ProductDetail.css";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState()
@@ -22,7 +24,7 @@ const ProductDetail = () => {
   },[id]);
 
   return (
-    <div style={{minHeight:"80vh"}}>
+    <div className='container-detail'>
       {loading ? (
         <Stack
         sx={{ color: "grey.500", display: "flex", alignItems: "center" }}
@@ -30,13 +32,7 @@ const ProductDetail = () => {
         <CircularProgress color="secondary" />
       </Stack>
       ) : (
-        <div className=''>
-          <div className='container-img'>
-            <img src={product.imgUrl} alt="img" />
-          </div>
-          <div className='container-data'>
-          </div>         
-        </div>
+        <Product product={product}/>
       )
       }
     </div>

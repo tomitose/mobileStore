@@ -26,7 +26,7 @@ const Home = () => {
 
   const search = (products) => {
     return products.filter((product) =>
-      product.model.toLowerCase().includes(query)
+      product.model.toLowerCase().includes(query.toLocaleLowerCase())
     );
   };
 

@@ -1,0 +1,13 @@
+.container-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.img {
+    height: 350px;
+}
