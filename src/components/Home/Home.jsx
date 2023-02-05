@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     window.scrollTo(0, 0);
-    API.getProducts()
+    API.getProducts(products)
       .then(setProducts)
       .catch(console.log("Error"))
       .finally(() => {
@@ -25,7 +25,8 @@ const Home = () => {
 
   const search = (products) => {
     return products.filter((product) =>
-      product.model.toLowerCase().includes(query.toLocaleLowerCase())
+      product.model.toLowerCase().includes(query.toLocaleLowerCase()) ||
+      product.brand.toLowerCase().includes(query.toLocaleLowerCase())
     );
   };
 

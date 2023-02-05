@@ -23,11 +23,10 @@ export const getProductDetail = async (id) => {
 };
 
 
-
-export const addProductToCart = async (product) => {
+export const addProductToCart = async () => {
   try {
-    console.log(`${API_URL}/cart`, product)
-    const response = await axios.post(`${API_URL}/cart`, product);
+    console.log(`${API_URL}/cart`)
+    const response = await axios.post(`${API_URL}/cart`);
     return response.data;
   } catch (error) {
     throw error;

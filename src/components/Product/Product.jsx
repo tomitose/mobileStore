@@ -1,32 +1,12 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import "./Product.css";
-// import { addProductToCart } from "../../services/getFetch"
-// import * as API from "../../services/getFetch";
+import { POST } from "../../services/POST";
 
 const Product = ({ product }) => {
-  // const [productDetail,setProductDetail] = useState()
   const [selected, setSelected] = useState(null);
   const [colorSel, setColorSel] = useState(null);
-
-  // useEffect(()=> {
-  //   window.scrollTo(0, 0);
-  //   API.addProductToCart(product)
-  //   .then(setProductDetail(product))
-  //   .catch(error => {
-  //     console.log(error);
-  //   })
-
-  // },[]);
-
-  // const handleAddToCart = async () => {
-  //   try {
-  //     const response = await addProductToCart(product);
-  //     console.log("Product added to cart:", response);
-  //   } catch (error) {
-  //     console.error("Error adding product to cart:", error);
-  //   }
-  // };
+  const [count, setCount] = useState(0);
 
   const memorySize = product.internalMemory.map((item, index) => {
     return (
@@ -74,14 +54,17 @@ const Product = ({ product }) => {
     setColorSel(index);
   };
 
-  // // const handleClick = async (product) => {
-  // //   const productPost = {
-  // //     id: product.id,
-  //       colorCode: product.options.colors[0],
-  //       storageCode: product.options.storages[0]
-  // //   };
-  // //   await addProductToCart(productPost);
-  // // };
+  const handleAddToCart = async () => {
+    setCount(count + 1);
+
+    const body = {
+      id: product.id,
+      colorCode: product.options.colors[0],
+      storageCode: product.options.storages[0],
+    };
+
+    POST(body);
+  };
 
   return (
     <div className="container-product">
@@ -145,7 +128,7 @@ const Product = ({ product }) => {
               className="btn-add-cart"
               variant="contained"
               sx={{ backgroundColor: "#6c2db1" }}
-              // onClick={handleAddToCart}
+              onClick={handleAddToCart}
             >
               + Add to Cart
             </Button>

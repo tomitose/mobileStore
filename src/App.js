@@ -9,7 +9,7 @@ import Bread from "./components/Bread/Bread";
 function App() {
   return (
     <BrowserRouter>
-      <Nav />
+      <Nav/>
       <Bread/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
