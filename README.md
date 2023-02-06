@@ -1,14 +1,32 @@
 # ESP
 
-Este proyecto es una tienda en línea de celulares móviles llamado Mobile-Store. Es un sitio web  fácil de navegar y ofrece características de filtrado y búsqueda para ayudar a los clientes a encontrar el dispositivo que busca.
+Este proyecto es una tienda de celulares móviles llamado Mobile-Store. Es un sitio web  fácil de navegar y ofrece características de filtrado y búsqueda para ayudar a los clientes a encontrar el dispositivo que busca.
 
-Aquí abajo el paso a paso para instalar las dependencias 
+Utilicé Material UI como biblioteca de componentes de interface de usuario. Material UI proporciona una amplia variedad de componentes pre-diseñados y estilos que se basan en los diseños de Material Design de Google.
+
+Para utilizar Material UI en tu proyecto:
+
+Instalar Material UI: Ejecuta el siguiente comando en tu terminal:
+
+### `npm install @material-ui/core`
+
+
 
 # ENG
 
-This project is an online store for mobile phones called Mobile-Store. It is an easy website to navigate and offers filtering and search features to help customers find the device they are looking for.
+This project is a store for mobile phones called Mobile-Store. It is an easy website to navigate and offers filtering and search features to help customers find the device they are looking for.
+
+I used Material UI as a UI component library. Material UI provides a wide variety of pre-built components and styles that are based on Google's Material Design layouts.
+
+To use Material UI in your project:
+
+Install Material UI: Run the following command in your terminal:
+
+### `npm install @material-ui/core`
+
 
 Here below the step by step to install the dependencies
+
 
 # Getting Started with Create React App
 
