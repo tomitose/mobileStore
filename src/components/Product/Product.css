@@ -13,7 +13,19 @@
 }
 
 
+
 .btn-add-cart:hover{
     background-color: #8756bb !important;
 
+}
+
+.btn-back{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-back-add:hover {
+    background-color: #8756bb !important;
 }

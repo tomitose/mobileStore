@@ -2,11 +2,19 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import "./Product.css";
 import { POST } from "../../services/POST";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(null);
   const [colorSel, setColorSel] = useState(null);
-  const [count, setCount] = useState(0);
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  
 
   const memorySize = product.internalMemory.map((item, index) => {
     return (
@@ -55,8 +63,6 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = async () => {
-    setCount(count + 1);
-
     const body = {
       id: product.id,
       colorCode: product.options.colors[0],
@@ -64,6 +70,35 @@ const Product = ({ product }) => {
     };
 
     POST(body);
+
+
+    // function addProductoToCart(){
+    //   const cart = document.getElementById('cart')
+    //   const quantity = parseInt(cart.textContent)
+    //   cart.textContent = quantity+1 // Reemplazado por metodo POST a cart.TextConent
+    // }
+    
+    // comprarbtn.addEventListener("click",()=>{ // comprarbtn reemplazar por boton de Add to cart
+    //   addProductoToCart()
+    //   const startTime = new Date
+    //   const deltaTime = 3600000 //
+    //   localStorage.setItem("startTime",startTime)
+    
+    
+    
+    //   setTimeout(() => {
+    //     const started = new Date(localStorage.getItem("startTime"))
+    //     const currentTime = new Date
+    
+    //     const t1 = started.getTime()
+    //     const t2 = currentTime.getTime()
+      
+    //     if((t2-t1)>deltaTime){
+    //     cart.textContent = 0 // Reemplazado por metodo POST a cart.TextConent
+    //     }
+    //   }, deltaTime)
+    // })
+
   };
 
   return (
@@ -123,7 +158,7 @@ const Product = ({ product }) => {
             Colors:
             {colorSelected}
           </h4>
-          <div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <Button
               className="btn-add-cart"
               variant="contained"
@@ -132,6 +167,18 @@ const Product = ({ product }) => {
             >
               + Add to Cart
             </Button>
+          </div>
+          <div>
+            <div className="btn-back">
+              <Button
+                className="btn-back-add"
+                variant="contained"
+                sx={{ backgroundColor: "#6c2db1" }}
+                onClick={goBack}
+              >
+                Go back
+              </Button>
+            </div>
           </div>
         </div>
       </div>
