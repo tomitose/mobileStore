@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsModal() {
+const ModalProduct = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -48,3 +48,5 @@ export default function TransitionsModal() {
     </div>
   );
 }
+
+export default ModalProduct;

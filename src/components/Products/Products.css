@@ -28,7 +28,7 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: 0.4s;
   background: #f2f2f2;
-  color: #6828c1;
+  color: var(--primary-color);
 }
 
 .content:hover {
@@ -54,6 +54,7 @@
 .price-nmb {
   font-size: 26px;
   text-align: center;
+  padding-top: 15px;
   margin: 0;
 }
 

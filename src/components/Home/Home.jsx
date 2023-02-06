@@ -14,19 +14,22 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     window.scrollTo(0, 0);
-    API.getProducts(products)
-      .then(setProducts)
-      .catch(console.log("Error"))
-      .finally(() => {
+    API.getProducts()
+      .then(data => {
+        console.log('API response:', data);
+        setProducts(data);
         setLoading(false);
-      });
-      console.log(products)
+      })
+      .catch(console.error);
   }, []);
 
   const search = (products) => {
-    return products.filter((product) =>
-      product.model.toLowerCase().includes(query.toLocaleLowerCase()) ||
-      product.brand.toLowerCase().includes(query.toLocaleLowerCase())
+    const words = query.toLowerCase().split(" ");
+    return products.filter(product =>
+      words.every(word =>
+        product.model.toLowerCase().includes(word) ||
+        product.brand.toLowerCase().includes(word)
+      )
     );
   };
 

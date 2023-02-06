@@ -9,11 +9,11 @@ import Bread from "./components/Bread/Bread";
 function App() {
   return (
     <BrowserRouter>
-      <Nav/>
-      <Bread/>
+      <Nav />
+      <Bread />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path='/product/:id' element={<ProductDetail/>}></Route>
+        <Route path="/product/:id" element={<ProductDetail />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
       <Footer />

@@ -1,0 +1,18 @@
+.cart-container{
+    display: flex;
+    align-items: center;
+}
+
+.cart-detail{
+    display: flex;
+    background: #ed0909;
+    border-radius: 0.8em;
+   -moz-border-radius: 0.8em;
+   color: #000000;
+   line-height: 1.2em;
+   text-align: center;
+   width: 23px;
+   text-decoration: none; 
+   margin-top: 1px;
+}
+

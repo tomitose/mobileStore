@@ -13,12 +13,6 @@
 }
 
 
-
-.btn-add-cart:hover{
-    background-color: #8756bb !important;
-
-}
-
 .btn-back{
     display: flex;
     flex-direction: column;
@@ -26,6 +20,13 @@
     margin-top: 30px;
 }
 
+/* se que no se utiliza el !important por lo general pero por estetica no le encontre otra forma  */
+
+.btn-add-cart:hover{
+    background-color: var(--tertiary-color-1) !important;
+
+}
+
 .btn-back-add:hover {
-    background-color: #8756bb !important;
+    background-color: var(--tertiary-color-2) !important; 
 }

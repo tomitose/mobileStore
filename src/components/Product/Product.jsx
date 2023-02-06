@@ -3,18 +3,23 @@ import React, { useState } from "react";
 import "./Product.css";
 import { POST } from "../../services/POST";
 import { useNavigate } from "react-router-dom";
+import Details from "./Details/Details";
+// import ModalProduct from "../ModalProduct/ModalProduct";
 
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(null);
   const [colorSel, setColorSel] = useState(null);
+
+  const reload = () => {
+    window.location.reload(true);
+}
+
 
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
   };
-
-  
 
   const memorySize = product.internalMemory.map((item, index) => {
     return (
@@ -24,8 +29,8 @@ const Product = ({ product }) => {
         color="secondary"
         variant="outlined"
         style={{
-          backgroundColor: selected === index ? "#ded3eb" : "white",
-          color: "#9c27b0",
+          backgroundColor: selected === index ? "var(--tertiary-color-2)" : "white",
+          color: "var(--secondary-color)",
           margin: 5,
         }}
         onClick={() => handleClickMemory(index)}
@@ -43,8 +48,8 @@ const Product = ({ product }) => {
         color="secondary"
         variant="outlined"
         style={{
-          backgroundColor: colorSel === index ? "#ded3eb" : "white",
-          color: "#9c27b0",
+          backgroundColor: colorSel === index ? "var(--tertiary-color-2)" : "white",
+          color: "var(--secondary-color)",
           margin: 5,
         }}
         onClick={() => handleClickColor(index)}
@@ -63,42 +68,22 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = async () => {
+    
     const body = {
       id: product.id,
       colorCode: product.options.colors[0],
       storageCode: product.options.storages[0],
     };
 
-    POST(body);
+    POST(body).then(reload()).catch(e =>console.log(e))
+    console.log("//////////////////")
+    console.log("Segundo Body:", body)
+    
 
-
-    // function addProductoToCart(){
-    //   const cart = document.getElementById('cart')
-    //   const quantity = parseInt(cart.textContent)
-    //   cart.textContent = quantity+1 // Reemplazado por metodo POST a cart.TextConent
-    // }
-    
-    // comprarbtn.addEventListener("click",()=>{ // comprarbtn reemplazar por boton de Add to cart
-    //   addProductoToCart()
-    //   const startTime = new Date
-    //   const deltaTime = 3600000 //
-    //   localStorage.setItem("startTime",startTime)
-    
-    
-    
-    //   setTimeout(() => {
-    //     const started = new Date(localStorage.getItem("startTime"))
-    //     const currentTime = new Date
-    
-    //     const t1 = started.getTime()
-    //     const t2 = currentTime.getTime()
+    // return (
+    //   <ModalProduct/>
+    // )
       
-    //     if((t2-t1)>deltaTime){
-    //     cart.textContent = 0 // Reemplazado por metodo POST a cart.TextConent
-    //     }
-    //   }, deltaTime)
-    // })
-
   };
 
   return (
@@ -107,50 +92,7 @@ const Product = ({ product }) => {
         <img className="img" src={product.imgUrl} alt={product.model} />
       </div>
       <div className="container-data">
-        <div className="description">
-          <h3>
-            {product.model} - {product.brand}
-          </h3>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Price:</strong>$
-            {product.price}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>CPU:</strong> {product.cpu}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>RAM:</strong>
-            {product.ram}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Operating System:</strong>
-            {product.os}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Display Resolution:</strong>
-            {product.displayResolution}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Battery:</strong>
-            {product.battery}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Camera Primary:</strong>
-            {product.primaryCamera}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Camera Secondary:</strong>
-            {product.secondaryCmera}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Dimentions:</strong>
-            {product.dimentions}
-          </p>
-          <p>
-            <strong style={{ fontWeight: "bold" }}>Weight:</strong>
-            {product.weight}
-          </p>
-        </div>
+        <Details product={product} />
         <div className="actions">
           <h4>Memory Size: {memorySize} </h4>
 
@@ -168,12 +110,13 @@ const Product = ({ product }) => {
               + Add to Cart
             </Button>
           </div>
+
           <div>
             <div className="btn-back">
               <Button
                 className="btn-back-add"
-                variant="contained"
-                sx={{ backgroundColor: "#6c2db1" }}
+                variant="outlined"
+                sx={{ color: "#6c2db1",borderColor:"#6c2db1" }}
                 onClick={goBack}
               >
                 Go back
