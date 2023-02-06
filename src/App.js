@@ -8,8 +8,6 @@ import Bread from "./components/Bread/Bread";
 import { CartProvider } from "./components/Context/CartContext";
 
 function App() {
-
-
   return (
     <CartProvider>
       <BrowserRouter>

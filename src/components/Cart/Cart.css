@@ -5,14 +5,16 @@
 
 .cart-detail{
     display: flex;
-    background: #ed0909;
-    border-radius: 0.8em;
-   -moz-border-radius: 0.8em;
-   color: #000000;
-   line-height: 1.2em;
-   text-align: center;
-   width: 23px;
-   text-decoration: none; 
-   margin-top: 1px;
 }
 
+.cart-amount{
+    display: flex;
+    flex-direction: column;
+    background: #ed0909;
+    border-radius: 0.8em;
+    color: #fff;
+    text-align: center;
+    width: 22px;
+    text-decoration: none; 
+    margin-top: 1px;
+}

@@ -15,8 +15,8 @@ const Home = () => {
     setLoading(true);
     window.scrollTo(0, 0);
     API.getProducts()
-      .then(data => {
-        console.log('API response:', data);
+      .then((data) => {
+        console.log("API response:", data);
         setProducts(data);
         setLoading(false);
       })
@@ -25,10 +25,11 @@ const Home = () => {
 
   const search = (products) => {
     const words = query.toLowerCase().split(" ");
-    return products.filter(product =>
-      words.every(word =>
-        product.model.toLowerCase().includes(word) ||
-        product.brand.toLowerCase().includes(word)
+    return products.filter((product) =>
+      words.every(
+        (word) =>
+          product.model.toLowerCase().includes(word) ||
+          product.brand.toLowerCase().includes(word)
       )
     );
   };
@@ -45,13 +46,18 @@ const Home = () => {
       </div>
       {loading ? (
         <Stack
-          sx={{ color: "grey.500", display: "flex", alignItems: "center" }}
+          sx={{
+            color: "grey.500",
+            display: "flex",
+            alignItems: "center",
+            alignContent: "center",
+          }}
         >
           <CircularProgress color="secondary" />
         </Stack>
       ) : (
         <div className="container-cell">
-            <Products products={search(products)} />
+          <Products products={search(products)} />
         </div>
       )}
     </div>

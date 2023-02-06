@@ -4,18 +4,12 @@ import "./Product.css";
 import { POST } from "../../services/POST";
 import { useNavigate } from "react-router-dom";
 import Details from "./Details/Details";
-import { CartContext } from '../Context/CartContext';
-// import ModalProduct from "../ModalProduct/ModalProduct";
+import { CartContext } from "../Context/CartContext";
 
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(null);
   const [colorSel, setColorSel] = useState(null);
   const { addToCart } = useContext(CartContext);
-
-
-  // const reload = () => {
-  //   window.location.reload(true);
-  // };
 
   const navigate = useNavigate();
 
@@ -78,17 +72,9 @@ const Product = ({ product }) => {
       storageCode: product.options.storages[0],
     };
 
-
     addToCart(body);
-    POST(body)
-      // .then(reload())
-      // .catch((e) => console.log(e));
-    console.log("//////////////////");
-    console.log("Segundo Body:", body);
-
-    // return (
-    //   <ModalProduct/>
-    // )
+    POST(body);
+    
   };
 
   return (
