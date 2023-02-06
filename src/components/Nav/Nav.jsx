@@ -1,4 +1,3 @@
-import React from "react";
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Nav.css";
@@ -7,6 +6,8 @@ import Cart from "../Cart/Cart";
 
 
 const Nav = () => {
+
+
   return (
     <Box sx={{ flexGrow: 1, height: "10%" }}>
       <AppBar position="static" className="nav-bar">

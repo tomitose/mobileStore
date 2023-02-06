@@ -1,19 +1,21 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Product.css";
 import { POST } from "../../services/POST";
 import { useNavigate } from "react-router-dom";
 import Details from "./Details/Details";
+import { CartContext } from '../Context/CartContext';
 // import ModalProduct from "../ModalProduct/ModalProduct";
 
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(null);
   const [colorSel, setColorSel] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
-  const reload = () => {
-    window.location.reload(true);
-}
 
+  // const reload = () => {
+  //   window.location.reload(true);
+  // };
 
   const navigate = useNavigate();
 
@@ -29,7 +31,8 @@ const Product = ({ product }) => {
         color="secondary"
         variant="outlined"
         style={{
-          backgroundColor: selected === index ? "var(--tertiary-color-2)" : "white",
+          backgroundColor:
+            selected === index ? "var(--tertiary-color-2)" : "white",
           color: "var(--secondary-color)",
           margin: 5,
         }}
@@ -48,7 +51,8 @@ const Product = ({ product }) => {
         color="secondary"
         variant="outlined"
         style={{
-          backgroundColor: colorSel === index ? "var(--tertiary-color-2)" : "white",
+          backgroundColor:
+            colorSel === index ? "var(--tertiary-color-2)" : "white",
           color: "var(--secondary-color)",
           margin: 5,
         }}
@@ -68,22 +72,23 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = async () => {
-    
     const body = {
       id: product.id,
       colorCode: product.options.colors[0],
       storageCode: product.options.storages[0],
     };
 
-    POST(body).then(reload()).catch(e =>console.log(e))
-    console.log("//////////////////")
-    console.log("Segundo Body:", body)
-    
+
+    addToCart(body);
+    POST(body)
+      // .then(reload())
+      // .catch((e) => console.log(e));
+    console.log("//////////////////");
+    console.log("Segundo Body:", body);
 
     // return (
     //   <ModalProduct/>
     // )
-      
   };
 
   return (
@@ -116,7 +121,7 @@ const Product = ({ product }) => {
               <Button
                 className="btn-back-add"
                 variant="outlined"
-                sx={{ color: "#6c2db1",borderColor:"#6c2db1" }}
+                sx={{ color: "#6c2db1", borderColor: "#6c2db1" }}
                 onClick={goBack}
               >
                 Go back

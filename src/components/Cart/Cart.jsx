@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import "./Cart.css"
+import { CartContext } from '../Context/CartContext';
 
 const Cart = () => {
+  const { cart } = useContext(CartContext);
 
+  
   return (
     <div className="cart-container">
-      {localStorage.length === 0 ? (<ShoppingCartOutlinedIcon/>):(
+      {cart.length === 0 ? (<ShoppingCartOutlinedIcon/>):(
         <div className="cart-detail">
           <ShoppingCartOutlinedIcon/>
+          <p>{cart.length}</p>
         </div>
       )}
     </div>
