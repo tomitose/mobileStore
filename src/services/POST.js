@@ -35,7 +35,7 @@ export const POST = async (id) => {
         localStorage.setItem(productKey, JSON.stringify(body));
         localStorage.setItem(
           `${productKey}-expirationTime`,
-          new Date().getTime() + 20000
+          new Date().getTime() + 3600000
         );
 
         const checkExpiration = setInterval(() => {
