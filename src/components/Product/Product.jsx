@@ -95,7 +95,7 @@ const Product = ({ product }) => {
             <Button
               className="btn-add-cart"
               variant="contained"
-              sx={{ backgroundColor: "#6c2db1" }}
+              sx={{ backgroundColor: "var(--secondary-color2)" }}
               onClick={handleAddToCart}
             >
               + Add to Cart
@@ -107,7 +107,7 @@ const Product = ({ product }) => {
               <Button
                 className="btn-back-add"
                 variant="outlined"
-                sx={{ color: "#6c2db1", borderColor: "#6c2db1" }}
+                sx={{ color: "var(--secondary-color2)", borderColor: "var(--secondary-color2)" }}
                 onClick={goBack}
               >
                 Go back
