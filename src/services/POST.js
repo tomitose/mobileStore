@@ -1,5 +1,4 @@
 export const POST = async (id) => {
-
   const body = {
     id: id.id,
     colorCode: id.colorCode.code,
@@ -36,7 +35,7 @@ export const POST = async (id) => {
         localStorage.setItem(productKey, JSON.stringify(body));
         localStorage.setItem(
           `${productKey}-expirationTime`,
-          new Date().getTime() + 3600000
+          new Date().getTime() + 20000
         );
 
         const checkExpiration = setInterval(() => {
@@ -52,5 +51,4 @@ export const POST = async (id) => {
       }
     })
     .catch((e) => console.log(e));
-
 };
