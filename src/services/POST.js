@@ -1,16 +1,4 @@
 export const POST = async (id) => {
-  // const  componentDidMount()=> {
-  //   const keys = Object.keys(localStorage);
-  //   keys.forEach(key => {
-  //     if (key.includes("-expirationTime")) {
-  //       const expirationTime = localStorage.getItem(key);
-  //       if (expirationTime < new Date().getTime()) {
-  //         const productKey = key.split("-expirationTime")[0];
-  //         localStorage.removeItem(productKey);
-  //         localStorage.removeItem(key);
-  //       }
-  //     }
-  //   });
 
   const body = {
     id: id.id,
@@ -39,10 +27,16 @@ export const POST = async (id) => {
       console.log("count: ", data.count);
       if (data.count) {
         const productKey = `product-${id.id}`;
+        const currentProduct = JSON.parse(localStorage.getItem(productKey));
+        if (currentProduct) {
+          body.count = currentProduct.count + data.count;
+        } else {
+          body.count = data.count;
+        }
         localStorage.setItem(productKey, JSON.stringify(body));
         localStorage.setItem(
           `${productKey}-expirationTime`,
-          new Date().getTime() + 20000
+          new Date().getTime() + 3600000
         );
 
         const checkExpiration = setInterval(() => {
@@ -58,4 +52,5 @@ export const POST = async (id) => {
       }
     })
     .catch((e) => console.log(e));
+
 };

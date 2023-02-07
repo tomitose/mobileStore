@@ -95,7 +95,7 @@ const Product = ({ product }) => {
             <Button
               className="btn-add-cart"
               variant="contained"
-              sx={{ backgroundColor: "var(--secondary-color2)" }}
+              sx={{ backgroundColor: "#6c2db1" }}
               onClick={handleAddToCart}
             >
               + Add to Cart
