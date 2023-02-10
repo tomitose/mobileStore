@@ -47,7 +47,7 @@ export const POST = async (id) => {
             localStorage.removeItem(`${productKey}-expirationTime`);
             clearInterval(checkExpiration);
           }
-        }, 1000);
+        }, 1800000);
       }
     })
     .catch((e) => console.log(e));
