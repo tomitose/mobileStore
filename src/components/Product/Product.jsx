@@ -7,9 +7,9 @@ import Details from "./Details/Details";
 import { CartContext } from "../Context/CartContext";
 
 const Product = ({ product }) => {
-  const [selected, setSelected] = useState(null);
-  const [colorSel, setColorSel] = useState(null);
-  const { addToCart } = useContext(CartContext);
+  const [selected, setSelected] = useState(0);
+  const [colorSel, setColorSel] = useState(0);
+  const { addToCart, cart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -74,6 +74,8 @@ const Product = ({ product }) => {
 
     addToCart(body);
     POST(body);
+
+    localStorage.setItem("count", JSON.stringify(cart.length));
     
   };
 
