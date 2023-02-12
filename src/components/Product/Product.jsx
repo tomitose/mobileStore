@@ -76,7 +76,6 @@ const Product = ({ product }) => {
     POST(body);
 
     localStorage.setItem("count", JSON.stringify(cart.length));
-    
   };
 
   return (
@@ -109,7 +108,10 @@ const Product = ({ product }) => {
               <Button
                 className="btn-back-add"
                 variant="outlined"
-                sx={{ color: "var(--secondary-color2)", borderColor: "var(--secondary-color2)" }}
+                sx={{
+                  color: "var(--secondary-color2)",
+                  borderColor: "var(--secondary-color2)",
+                }}
                 onClick={goBack}
               >
                 Go back

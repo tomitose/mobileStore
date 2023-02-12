@@ -4,7 +4,7 @@ import "./Cart.css";
 import { CartContext } from "../Context/CartContext";
 
 const Cart = () => {
-  const { cart, setCart  } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     const storedCartCount = JSON.parse(localStorage.getItem("count"));
