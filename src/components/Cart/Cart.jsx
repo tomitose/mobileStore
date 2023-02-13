@@ -56,7 +56,7 @@ const Cart = () => {
       localStorage.clear();
       setCart([]);
       setCount(0);
-    }, 3600000 );
+    }, 3600000 ); // 1 hr de guardado de datos en milisegundos
 
     return () => clearTimeout(timeoutId);
   }, [setCart, setCount]);
