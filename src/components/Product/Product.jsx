@@ -9,7 +9,7 @@ import { CartContext } from "../Context/CartContext";
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(0);
   const [colorSel, setColorSel] = useState(0);
-  const { addProductToCart, cart } = useContext(CartContext);
+  const { addProductToCart } = useContext(CartContext);
 
   const navigate = useNavigate();
 

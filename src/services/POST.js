@@ -5,10 +5,10 @@ export const POST = async (id) => {
     storageCode: id.storageCode.code,
   };
 
-  console.log("------------");
-  console.log(id.id);
-  console.log(id.colorCode.code);
-  console.log(id.storageCode.code);
+  // console.log("------------");
+  // console.log(id.id);
+  // console.log(id.colorCode.code);
+  // console.log(id.storageCode.code);
 
   const domainAPI = "https://2gm2eu9uuw.us-east-1.awsapprunner.com/";
   const endPoint = "api/cart";
