@@ -16,7 +16,7 @@ const Home = () => {
     window.scrollTo(0, 0);
     API.getProducts()
       .then((data) => {
-        console.log("API response:", data);
+        // console.log("API response:", data);
         setProducts(data);
         setLoading(false);
       })

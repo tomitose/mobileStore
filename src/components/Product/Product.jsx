@@ -74,8 +74,8 @@ const Product = ({ product }) => {
 
     addToCart(body);
     POST(body);
-
     localStorage.setItem("count", JSON.stringify(cart.length));
+
   };
 
   return (
