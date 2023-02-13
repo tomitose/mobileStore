@@ -9,7 +9,7 @@ import { CartContext } from "../Context/CartContext";
 const Product = ({ product }) => {
   const [selected, setSelected] = useState(0);
   const [colorSel, setColorSel] = useState(0);
-  const { addToCart, cart } = useContext(CartContext);
+  const { addProductToCart, cart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -72,10 +72,8 @@ const Product = ({ product }) => {
       storageCode: product.options.storages[0],
     };
 
-    addToCart(body);
+    addProductToCart(body);
     POST(body);
-    localStorage.setItem("count", JSON.stringify(cart.length));
-
   };
 
   return (

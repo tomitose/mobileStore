@@ -33,21 +33,6 @@ export const POST = async (id) => {
           body.count = data.count;
         }
         localStorage.setItem(productKey, JSON.stringify(body));
-        localStorage.setItem(
-          `${productKey}-expirationTime`,
-          new Date().getTime() + 3600000
-        );
-
-        const checkExpiration = setInterval(() => {
-          const expirationTime = localStorage.getItem(
-            `${productKey}-expirationTime`
-          );
-          if (expirationTime && new Date().getTime() > expirationTime) {
-            localStorage.removeItem(productKey);
-            localStorage.removeItem(`${productKey}-expirationTime`);
-            clearInterval(checkExpiration);
-          }
-        }, 1800000);
       }
     })
     .catch((e) => console.log(e));
